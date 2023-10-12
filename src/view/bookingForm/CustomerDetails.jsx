@@ -58,7 +58,6 @@ const CustomerDetails = () => {
   const handleFormSubmit = (values) => {
     setFormData(values)
     handleNext();
-    console.log(values);
 }
 
 

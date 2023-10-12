@@ -12,7 +12,6 @@ const PaymentDetails = () => {
     const handleFormSubmit = (values) => {
         setFormData(values)
         handleNext();
-        console.log(values);
     }
 
 

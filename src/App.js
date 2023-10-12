@@ -71,7 +71,7 @@ function App() {
                     <Route exact path="/add-associate" element={<Suspense fallback={<CircleLoading />}><AddAssociate /></Suspense>} />
                     <Route exact path="/edit-associate" element={<Suspense fallback={<CircleLoading />}><EditAssociate /></Suspense>} />
                     <Route exact path="/associate-report" element={<Suspense fallback={<CircleLoading />}><AssociateReport /></Suspense>} />
-                    <Route exact path="/add-project" element={<Suspense fallback={<CircleLoading />}><Master /></Suspense>} />
+                    <Route exact path="/add-project" element={<Suspense fallback={<CircleLoading />}><AddProject /></Suspense>} />
 
                     <Route exact path="*" element={<h1></h1>} />
                     <Route exact path="/booking/" element={<Suspense fallback={<CircleLoading />}><Master /></Suspense>} >

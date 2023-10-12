@@ -83,7 +83,6 @@ const Master = () => {
     const [currentStep, setCurrentStep] = useState(1);
     
     const handleNext = (data) => {
-        // Process and update the form data based on the current step
         setFormData((prevFormData) => ({
           ...prevFormData,
           ...data,
@@ -96,7 +95,6 @@ const Master = () => {
         navigate(`form${currentStep+1}`)
     };
 
-    // Define the a function to handle the  "previous" button click 
     const handlePrevious = () =>{
         if(currentStep > 1 ){
             setCurrentStep(currentStep -1 )
@@ -107,10 +105,10 @@ const Master = () => {
     const handleHold = () =>{
         
         // Here you have all details of customer, payment, nominee and plots 
-        // use as per need
+        // use as per needed
 
         // here call an api to send the form data 
-
+        console.log(formData);
         console.log("cleared")
         handleNext();
         clearFormData();

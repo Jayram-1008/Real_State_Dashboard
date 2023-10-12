@@ -11,7 +11,6 @@ const PlotDetails = () => {
     const handleFormSubmit = (values)=>{
         setFormData(values)
         handleHold();
-        console.log("Plot: ",values)
     }
 
   return (

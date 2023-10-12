@@ -53,17 +53,24 @@ const Sidebar = ({ collapsed }) => {
                             type: undefined
                         },
                         {
-                            key: "edit-project",
+                            key: "add-block",
                             icon: null,
                             children: null,
-                            label: "Edit Project",
+                            label: "Add Block",
                             type: undefined
                         },
                         {
-                            key: "view-project",
+                            key: "add-plot",
                             icon: null,
                             children: null,
-                            label: "View",
+                            label: "Add Plot",
+                            type: undefined
+                        },
+                        {
+                            key: "plot-report",
+                            icon: null,
+                            children: null,
+                            label: "Plot Report",
                             type: undefined
                         },
                     ],

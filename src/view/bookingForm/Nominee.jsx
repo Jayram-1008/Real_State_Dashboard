@@ -13,7 +13,6 @@ const Nominee = () => {
     const handleFormSubmit = (values) => {
         setFormData(values)
         handleNext();
-        console.log(values);
     }
 
   return (
