@@ -3,6 +3,7 @@ import { Box, Paper } from '@mui/material';
 import CardBox from '../components/cardbox';
 import Header from '../components/header';
 import RecentHold from '../components/recenthold';
+import ExploreCard from '../components/CardCollection/ExploreCard';
 
 const Home = () => {
   return (
@@ -23,6 +24,9 @@ const Home = () => {
               <CardBox title="Available Plots" number="40" subtitle="" bgColor="#FFE7E7" txtColor="#ef5350" />
             </Box>
             <Header title="Recent Activity" />
+            <Box sx={{display:'flex', gap:'20px', width:'100%', flexWrap:'wrap'}}> 
+              <ExploreCard/>
+            </Box>
           </Box>
           <Box sx={{ flex: 1, marginTop: "15px" }}>
             <RecentHold />

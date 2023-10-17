@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 
 let RecentHold = () => {
   return (
-    <Paper sx={{ backgroundColor: "#161E54", color: "#fafafa", width: "100%", height: "100%", borderRadius: "8px" }}>
+    <Paper sx={{ backgroundColor: "#161E54", color: "#fafafa", width: "100%", height: "100%", borderRadius: "8px", opacity:'0.9'}}>
       <Box sx={{ padding: "10px 15px", backgroundColor: "#1B204A", borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }}>
         <Typography variant="h3">Recenty Hold Item</Typography>
       </Box>
@@ -18,7 +18,7 @@ let RecentHold = () => {
             <Typography variant="h4">Project- 32 - Plot -12</Typography>
             <Typography variant='p'>Hold By -  Ankit</Typography>
           </Box>
-          <Button sx={{ flex: 1 }} variant="contained" color="primary" size="small">View Details</Button>
+          <Button sx={{ flex: 1, opacity:'0.9'}} variant="contained" color="primary" size="small">View Details</Button>
         </Paper>
 
         <Paper sx={{ border: "1px solid #fff", backgroundColor: "#292F59", borderRadius: "5px", padding: "10px", display: "flex", justifyContent: "space-between", alignItems: "center", color: "#fff", marginRight: "10px" }}>
@@ -27,7 +27,7 @@ let RecentHold = () => {
             <Typography variant="h4">Project- 32 - Plot -12</Typography>
             <Typography variant='p'>Hold By -  Ankit</Typography>
           </Box>
-          <Button sx={{ flex: 1 }} variant="contained" color="primary" size="small">View Details</Button>
+          <Button sx={{ flex: 1, opacity:'0.9'}} variant="contained" color="primary" size="small">View Details</Button>
         </Paper>
 
         <Paper sx={{ border: "1px solid #fff", backgroundColor: "#292F59", borderRadius: "5px", padding: "10px", display: "flex", justifyContent: "space-between", alignItems: "center", color: "#fff", marginRight: "10px" }}>
@@ -36,7 +36,7 @@ let RecentHold = () => {
             <Typography variant="h4">Project- 32 - Plot -12</Typography>
             <Typography variant='p'>Hold By -  Ankit</Typography>
           </Box>
-          <Button sx={{ flex: 1 }} variant="contained" color="primary" size="small">View Details</Button>
+          <Button sx={{ flex: 1, opacity:'0.9'}} variant="contained" color="primary" size="small">View Details</Button>
         </Paper>
 
         <Paper sx={{ border: "1px solid #fff", backgroundColor: "#292F59", borderRadius: "5px", padding: "10px", display: "flex", justifyContent: "space-between", alignItems: "center", color: "#fff", marginRight: "10px" }}>
@@ -45,7 +45,7 @@ let RecentHold = () => {
             <Typography variant="h4">Project- 32 - Plot -12</Typography>
             <Typography variant='p'>Hold By -  Ankit</Typography>
           </Box>
-          <Button sx={{ flex: 1 }} variant="contained" color="primary" size="small">View Details</Button>
+          <Button sx={{ flex: 1, opacity:'0.9' }} variant="contained" color="primary" size="small">View Details</Button>
         </Paper>
 
 
@@ -55,7 +55,7 @@ let RecentHold = () => {
       </Box>
       <Box sx={{ display: "flex", justifyContent: 'space-between', alignItems: "center", padding: "15px 15px", backgroundColor: "#161E54", borderBottomRightRadius: "8px", borderBottomLeftRadius: "8px" }}>
         <Typography variant="h5">Today Associate's hold 12 items.</Typography>
-        <Button variant="contained" size="small">See All Holding</Button>
+        <Button sx={{  opacity:'0.9' }} variant="contained" size="small">See All Holding</Button>
       </Box>
     </Paper>
   );

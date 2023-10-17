@@ -9,6 +9,7 @@ import { themeSettings } from "./theme";
 import CircleLoading from "./components/global/circleloading";
 import { MyContextProvider } from "./components/global/MyContext";
 import ThankyouForm from "./view/bookingForm/ThankyouForm";
+import ProjectGroup from "./view/project/ProjectGroup";
 
 const Main = lazy(() => import('./view/main'));
 const Home = lazy(() => import('./view/home'));
@@ -16,6 +17,9 @@ const AddAssociate = lazy(() => import('./view/associate/addassociate'));
 const AssociateReport = lazy(() => import('./view/associate/associatereport'));
 const EditAssociate = lazy(() => import('./view/associate/editassociate'));
 const AddProject = lazy(() => import('./view/project/addproject'));
+const AddBlock = lazy(() => import('./view/project/addblock'));
+const AddPlot = lazy(()=> import('./view/project/PlotAdd'));
+const PlotReport = lazy(() => import('./view/project/PlotReport'));
 
 const Master = lazy(()=> import('./view/bookingForm/Master'));
 const CustomerDetails = lazy(()=> import('./view/bookingForm/CustomerDetails'));
@@ -71,8 +75,14 @@ function App() {
                     <Route exact path="/add-associate" element={<Suspense fallback={<CircleLoading />}><AddAssociate /></Suspense>} />
                     <Route exact path="/edit-associate" element={<Suspense fallback={<CircleLoading />}><EditAssociate /></Suspense>} />
                     <Route exact path="/associate-report" element={<Suspense fallback={<CircleLoading />}><AssociateReport /></Suspense>} />
-                    <Route exact path="/add-project" element={<Suspense fallback={<CircleLoading />}><AddProject /></Suspense>} />
-
+                   
+                    <Route exact path="/" element={<Suspense fallback={<CircleLoading/>}><ProjectGroup/></Suspense>}>
+                      <Route exact path="/add-project" element={<Suspense fallback={<CircleLoading />}><AddProject /></Suspense>} />
+                      <Route exact path="/add-block" element={<Suspense fallback={<CircleLoading />}><AddBlock /></Suspense>} />
+                      <Route exact path="/add-plot" element={<Suspense fallback={<CircleLoading />}><AddPlot /></Suspense>} />
+                      <Route exact path="/plot-report" element={<Suspense fallback={<CircleLoading />}><PlotReport /></Suspense>} />
+                    </Route>
+                   
                     <Route exact path="*" element={<h1></h1>} />
                     <Route exact path="/booking/" element={<Suspense fallback={<CircleLoading />}><Master /></Suspense>} >
                       <Route index element={<Navigate to="form1" replace />} />

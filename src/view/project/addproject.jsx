@@ -4,6 +4,9 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import React from 'react'
 import { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
+import CustomTable from '../../components/table/CustomTable';
+import Header from '../../components/header';
 
 
 const columns = [
@@ -15,6 +18,9 @@ const columns = [
 
 
 const AddProject = () => {
+
+    const {addProjectColumn} = useOutletContext();
+    console.log(addProjectColumn)
 
     const [newProjectName, setNewProjectName] = useState("");
     const [projects, setProjects] = useState([]);
@@ -39,10 +45,10 @@ const AddProject = () => {
     return (
         <>
             <Box>
-                <Box sx={{display:'flex', flexDirection:'column', gap:'20px',}}>
-                    <Box>
-                        <Paper sx={{p:3}} elevation={4}>
-                            <Typography variant='h5' color="primary">Add New Project</Typography>
+                <Box sx={{display:'flex', flexDirection:'column', gap:'10px',}}>
+                    <Header title="Add Project"/>
+                    <Box sx={{ }}>
+                        <Paper sx={{p:1}} elevation={4}>
                             <Formik 
                                 enableReinitialize={true}
                                 onSubmit={handleFormSubmit}
@@ -59,24 +65,21 @@ const AddProject = () => {
                                     handleReset
                                 }) =>(
                                     <form onSubmit={handleSubmit}>
-                                        <Box sx={{display:'flex', flexDirection:'column', gap:'20px', mt:2}}>
-                                            <Box sx={{display:'flex', alignItems:'center', gap:'20px'}}>
-                                                <Typography >Project Name</Typography>
-                                                <TextField
-                                                    fullWidth
-                                                    type='text'
-                                                    variant='standard'
-                                                    onBlur={handleBlur}
-                                                    onChange={handleChange}
-                                                    name="project_name"
-                                                    value={values.project_name}
-                                                    error={!!touched.project_name && !!errors.project_name}
-                                                    helperText={touched.project_name && errors.project_name}
-                                                    sx={{flex:1,}}
-                                                />
-                                            </Box>
-                                            <Box sx={{display:'flex', gap:'20px', mt:1}}>
-                                                <Button variant="contained" color="success" type='submit'> Submit</Button>
+                                        <Box sx={{display:'flex', flexDirection:'column', gap:'20px', justifyContent:"flex-end" }}>
+                                            <TextField
+                                                fullWidth
+                                                type='text'
+                                                variant='standard'
+                                                label="Project Name"
+                                                onBlur={handleBlur}
+                                                onChange={handleChange}
+                                                name="project_name"
+                                                value={values.project_name}
+                                                error={!!touched.project_name && !!errors.project_name}
+                                                helperText={touched.project_name && errors.project_name}
+                                            />
+                                            <Box sx={{display:'flex', gap:'20px',  justifyContent:'flex-end'}}>
+                                                <Button variant="contained" color="primary" type='submit'> Submit</Button>
                                                 <Button variant="outlined" color="error" onClick={handleReset} > Reset</Button>
                                             </Box> 
                                         </Box>
@@ -86,22 +89,10 @@ const AddProject = () => {
                         </Paper>
                     </Box>
                     <Box>
-                        <Paper sx={{p:3, mt:3}} elevation={4}>
+                        <Paper sx={{p:1, mt:3}} elevation={4}>
                             <Typography>Project Lists</Typography>
-                            <Box  sx={{pt:1, mt:1}} >
-                                <Box sx={{ height: 400, width: '100%' }}>
-                                    <DataGrid
-                                        rows={projects}
-                                        columns={columns}
-                                        initialState={{
-                                        pagination: {
-                                            paginationModel: { page: 0, pageSize: 5 },
-                                        },
-                                        }}
-                                        pageSizeOptions={[5, 10]}
-                                        checkboxSelection
-                                    />
-                                </Box>
+                            <Box  sx={{pt:1}} >
+                                <CustomTable addProjectColumn={addProjectColumn}/>
                             </Box>
                         </Paper>
                     </Box>
