@@ -44,58 +44,56 @@ const AddProject = () => {
 
     return (
         <>
-            <Box>
-                <Box sx={{display:'flex', flexDirection:'column', gap:'10px',}}>
-                    <Header title="Add Project"/>
-                    <Box sx={{ }}>
-                        <Paper sx={{p:1}} elevation={4}>
-                            <Formik 
-                                enableReinitialize={true}
-                                onSubmit={handleFormSubmit}
-                                validationSchema={checkoutSchema}
-                                initialValues={initialValues}
-                            >
-                                {({
-                                    values,
-                                    errors,
-                                    touched,
-                                    handleBlur,
-                                    handleSubmit,
-                                    handleChange,
-                                    handleReset
-                                }) =>(
-                                    <form onSubmit={handleSubmit}>
-                                        <Box sx={{display:'flex', flexDirection:'column', gap:'20px', justifyContent:"flex-end" }}>
-                                            <TextField
-                                                fullWidth
-                                                type='text'
-                                                variant='standard'
-                                                label="Project Name"
-                                                onBlur={handleBlur}
-                                                onChange={handleChange}
-                                                name="project_name"
-                                                value={values.project_name}
-                                                error={!!touched.project_name && !!errors.project_name}
-                                                helperText={touched.project_name && errors.project_name}
-                                            />
-                                            <Box sx={{display:'flex', gap:'20px',  justifyContent:'flex-end'}}>
-                                                <Button variant="contained" color="primary" type='submit'> Submit</Button>
-                                                <Button variant="outlined" color="error" onClick={handleReset} > Reset</Button>
-                                            </Box> 
-                                        </Box>
-                                    </form>
-                                )}
-                            </Formik>
-                        </Paper>
-                    </Box>
-                    <Box>
-                        <Paper sx={{p:1, mt:3}} elevation={4}>
-                            <Typography>Project Lists</Typography>
-                            <Box  sx={{pt:1}} >
-                                <CustomTable addProjectColumn={addProjectColumn}/>
-                            </Box>
-                        </Paper>
-                    </Box>
+            <Box sx={{display:'flex', flexDirection:'column', gap:'10px',}}>
+                <Header title="Add Project"/>
+                <Box>
+                    <Paper sx={{p:1}} elevation={4}>
+                        <Formik 
+                            enableReinitialize={true}
+                            onSubmit={handleFormSubmit}
+                            validationSchema={checkoutSchema}
+                            initialValues={initialValues}
+                        >
+                            {({
+                                values,
+                                errors,
+                                touched,
+                                handleBlur,
+                                handleSubmit,
+                                handleChange,
+                                handleReset
+                            }) =>(
+                                <form onSubmit={handleSubmit}>
+                                    <Box sx={{display:'flex', flexDirection:{xs:'column', md:'row'}, gap:'20px',alignItems:'center', }}>
+                                        <TextField
+                                            type='text'
+                                            variant='standard'
+                                            label="Project Name"
+                                            onBlur={handleBlur}
+                                            onChange={handleChange}
+                                            name="project_name"
+                                            value={values.project_name}
+                                            error={!!touched.project_name && !!errors.project_name}
+                                            helperText={touched.project_name && errors.project_name}
+                                            sx={{width:{xs:'100%', md:'50%'}}}
+                                        />
+                                        <Box sx={{display:'flex', gap:'20px', mt:1 }}>
+                                            <Button variant="contained" color="primary" type='submit' > Submit</Button>
+                                            <Button variant="outlined" color="error" onClick={handleReset} > Reset</Button>
+                                        </Box> 
+                                    </Box>
+                                </form>
+                            )}
+                        </Formik>
+                    </Paper>
+                </Box>
+                <Box>
+                    <Paper sx={{p:1, mt:1}} elevation={4}>
+                        <Typography>Project Lists</Typography>
+                        <Box  sx={{pt:1}} >
+                            <CustomTable addProjectColumn={addProjectColumn}/>
+                        </Box>
+                    </Paper>
                 </Box>
             </Box>
         </>
