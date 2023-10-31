@@ -1,6 +1,3 @@
-import { Button } from '@mui/material'
-import {IconButton} from '@mui/material'
-import { Edit } from '@mui/icons-material'
 import React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
@@ -8,30 +5,31 @@ import { Outlet } from 'react-router-dom'
 const ProjectGroup = () => {
 
   const addProjectColumn = [
-    { id: 'id', label: 'ID', minWidth: 170 },
-    { id: 'projectName', label: 'Project Name', minWidth: 100 },
-    { id: 'date', label: 'Date', minWidth: 170, align: 'center' },
+    { field: 'id', headerName: 'ID', minWidth: 100, },
+    { field: 'projectName', headerName: 'Project Name', minWidth: 200,flex:1 },
+    { field: 'date', headerName: 'Date', minWidth: 170, },
+    
   ]
   const addBlockColumn = [
-    { id: 'id', label: 'ID', minWidth: 170 },
-    { id: 'projectName', label: 'Project Name', minWidth: 100 },
-    { id: 'block', label: 'Block', minWidth: 170, align: 'center' },
+    { field: 'id', headerName: 'ID', minWidth: 100 },
+    { field: 'projectName', headerName: 'Project Name', minWidth: 200, flex:1 },
+    { field: 'block', headerName: 'Block', minWidth: 170, },
   ]
 
   const addPlotColumn = [
-    { id: 'id', label: 'ID', minWidth: 170 },
-    { id: 'projectName', label: 'Project Name', minWidth: 100 },
-    { id: 'block', label: 'Block', minWidth: 170, align: 'center'},
-    { id: 'plotNoFrom', label: 'Plot No. From', minWidth: 170, align: 'center'},
-    { id: 'plotNoTo', label: 'Plot No. To', minWidth: 170, align: 'center'},
+    { field: 'id', headerName: 'ID', minWidth: 100 },
+    { field: 'projectName', headerName: 'Project Name', minWidth: 200, flex:1 },
+    { field: 'block', headerName: 'Block', minWidth: 120},
+    { field: 'plotNoFrom', headerName: 'Plot No. From', minWidth: 160 },
+    { field: 'plotNoTo', headerName: 'Plot No. To', minWidth: 150},
   ]
   
   const addPlotReportColumn = [
-    { field: 'id', headerName: 'ID', minWidth: 130 },
-    { field: 'projectName', headerName: 'Project Name', minWidth: 200 },
-    { field: 'block', headerName: 'Block', minWidth: 100 },
-    { field: 'plotNo', headerName: 'Plot No.', minWidth: 100 },
-    { field: 'dimension', headerName: 'Dimension', minWidth: 130 },
+    { field: 'id', headerName: 'ID', minWidth: 50 },
+    { field: 'projectName', headerName: 'Project Name', minWidth: 200, flex:1},
+    { field: 'block', headerName: 'Block', minWidth: 120 },
+    { field: 'plotNo', headerName: 'Plot No.', minWidth: 120 },
+    { field: 'dimension', headerName: 'Dimension', minWidth: 150 },
     { field: 'status', headerName: 'Status', minWidth: 130 },
   ]
 
@@ -61,8 +59,6 @@ const ProjectGroup = () => {
   const handleEdit = () =>{
     console.log("Edited");
   }
-
-
 
    
   return (

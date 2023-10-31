@@ -6,7 +6,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import * as yup from "yup";
-import CustomTable from '../../components/table/CustomTable';
 import { useOutletContext } from 'react-router-dom';
 import PlotReportTable from '../../components/table/PlotReportTable';
 import { Delete, Edit, Search } from '@mui/icons-material';

@@ -6,9 +6,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import * as yup from "yup";
-import CustomTable from '../../components/table/CustomTable';
 import { useOutletContext } from 'react-router-dom';
 import Header from '../../components/header';
+import SaveIcon from '@mui/icons-material/Save';
+import PlotReportTable from '../../components/table/PlotReportTable';
 
 const PlotAdd = () => {
 
@@ -23,7 +24,7 @@ const PlotAdd = () => {
     <Box>
         <Header title="Add Plot"/>
         <Box sx={{mt:1}}>
-            <Paper sx={{p:1.5}} elevation={4}>
+            <Paper sx={{p:1}}>
                 <Formik
                     enableReinitialize={true}
                     onSubmit={handleFormSubmit}
@@ -132,7 +133,9 @@ const PlotAdd = () => {
                                     />
                                 </Box>
                                 <Box sx={{display:'flex', gap:'20px', mt:2, justifyContent:'center'}}>
-                                    <Button variant="contained" color="primary" type='submit'> Submit</Button>
+                                    <Button variant="contained" color="primary" type='submit' size='small'>
+                                        <SaveIcon />&nbsp; Submit
+                                    </Button>
                                     <Button variant="outlined" color="error" onClick={handleReset} > Reset</Button>
                                 </Box> 
                             </Box>
@@ -141,11 +144,11 @@ const PlotAdd = () => {
                 </Formik>
             </Paper>
         </Box>
-        <Box sx={{mt:2}}>
-            <Paper sx={{p:1}} elevation={4}>
+        <Box sx={{mt:1}}>
+            <Paper sx={{p:1}} >
                 <Typography variant='h5' color="primary">Plot Lists</Typography>  
                 <Box style={{ marginTop: '10px' }}>
-                    <CustomTable  addPlotColumn={addPlotColumn}/>
+                    <PlotReportTable  addPlotColumn={addPlotColumn}/>
                 </Box>                    
             </Paper>
         </Box>  

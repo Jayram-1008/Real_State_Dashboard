@@ -1,13 +1,13 @@
-import { Box, Paper, Typography, TextField, Button } from '@mui/material'
+import { Box, Paper, Typography, TextField, Button, IconButton } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid';
 import { Formik } from "formik";
 import * as yup from "yup";
 import React from 'react'
 import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
-import CustomTable from '../../components/table/CustomTable';
 import Header from '../../components/header';
-
+import AddIcon from '@mui/icons-material/Add';
+import PlotReportTable from '../../components/table/PlotReportTable';
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 85 },
@@ -20,6 +20,7 @@ const columns = [
 const AddProject = () => {
 
     const {addProjectColumn} = useOutletContext();
+    const {addPlotReportColumn} = useOutletContext();
     console.log(addProjectColumn)
 
     const [newProjectName, setNewProjectName] = useState("");
@@ -47,7 +48,7 @@ const AddProject = () => {
             <Box sx={{display:'flex', flexDirection:'column', gap:'10px',}}>
                 <Header title="Add Project"/>
                 <Box>
-                    <Paper sx={{p:1}} elevation={4}>
+                    <Paper sx={{p:1}} >
                         <Formik 
                             enableReinitialize={true}
                             onSubmit={handleFormSubmit}
@@ -64,8 +65,9 @@ const AddProject = () => {
                                 handleReset
                             }) =>(
                                 <form onSubmit={handleSubmit}>
-                                    <Box sx={{display:'flex', flexDirection:{xs:'column', md:'row'}, gap:'20px',alignItems:'center', }}>
+                                    <Box sx={{display:'flex',  gap:'20px',alignItems:'center', }}>
                                         <TextField
+                                            fullWidth
                                             type='text'
                                             variant='standard'
                                             label="Project Name"
@@ -75,12 +77,12 @@ const AddProject = () => {
                                             value={values.project_name}
                                             error={!!touched.project_name && !!errors.project_name}
                                             helperText={touched.project_name && errors.project_name}
-                                            sx={{width:{xs:'100%', md:'50%'}}}
                                         />
-                                        <Box sx={{display:'flex', gap:'20px', mt:1 }}>
-                                            <Button variant="contained" color="primary" type='submit' > Submit</Button>
-                                            <Button variant="outlined" color="error" onClick={handleReset} > Reset</Button>
-                                        </Box> 
+                                        <Box sx={{mt: 1}}>
+                                            <Button variant="contained" color="primary" type='submit' size='small'>
+                                                <AddIcon /> Add
+                                            </Button>
+                                        </Box>
                                     </Box>
                                 </form>
                             )}
@@ -88,10 +90,10 @@ const AddProject = () => {
                     </Paper>
                 </Box>
                 <Box>
-                    <Paper sx={{p:1, mt:1}} elevation={4}>
+                    <Paper sx={{p:1,}}>
                         <Typography>Project Lists</Typography>
-                        <Box  sx={{pt:1}} >
-                            <CustomTable addProjectColumn={addProjectColumn}/>
+                        <Box  sx={{mt:1}} >
+                            <PlotReportTable addProjectColumn={addProjectColumn}/>
                         </Box>
                     </Paper>
                 </Box>
