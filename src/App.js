@@ -10,6 +10,7 @@ import CircleLoading from "./components/global/circleloading";
 import { MyContextProvider } from "./components/global/MyContext";
 import ThankyouForm from "./view/bookingForm/ThankyouForm";
 import ProjectGroup from "./view/project/ProjectGroup";
+import Invoice from "./view/Invoice";
 
 const Main = lazy(() => import('./view/main'));
 const Home = lazy(() => import('./view/home'));
@@ -63,6 +64,7 @@ function App() {
             <BrowserRouter>
               <Routes>
                 {/* {!login.payload && <Route path="/*" element={<Navigate to="/login" replace />} />} */}
+
                 <Route exact path="/login" element={<Suspense fallback={<CircleLoading />}><Login /></Suspense>} />
                 <Route exact path="/login-otp" element={<Suspense fallback={<CircleLoading />}><Loginotp /></Suspense>} />
                 <Route exact path="/pass-verify" element={<Suspense fallback={<CircleLoading />}><PassVerify /></Suspense>} />
@@ -82,7 +84,11 @@ function App() {
                       <Route exact path="/add-plot" element={<Suspense fallback={<CircleLoading />}><AddPlot /></Suspense>} />
                       <Route exact path="/plot-report" element={<Suspense fallback={<CircleLoading />}><PlotReport /></Suspense>} />
                     </Route>
-                   
+
+
+                    <Route exact path="/invoice" element={<Suspense fallback={<CircleLoading />}><Invoice/></Suspense>} />
+                    
+                    
                     <Route exact path="*" element={<h1></h1>} />
                     <Route exact path="/booking/" element={<Suspense fallback={<CircleLoading />}><Master /></Suspense>} >
                       <Route index element={<Navigate to="form1" replace />} />
